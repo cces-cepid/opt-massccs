@@ -1,0 +1,1 @@
+{"targetList": "CCS_exp_CO2.dat", "force-field": "CO2.ff", "numberProbe": 10000, "nIter": 10, "seed": 2104, "dt": 10.0, "Temp": 523.0, "skin": 0.01, "GasBuffer": "CO2", "Equipotential": "yes", "Short-range cutoff": "yes", "LJ-cutoff": 12.0, "Long-range forces": "yes", "Long-range cutoff": "yes", "Coul-cutoff": 25.0, "polarizability": "yes"}

@@ -1,0 +1,117 @@
+*********************************************************
+Force Field parameters: 
+*********************************************************
+Symbol  mass (amu)  epislon (kcal/mol)  sigma(Angstroms) 
+C 12.011000 0.115737 3.399126
+N 14.007000 0.070000 3.821153
+H 1.008000 0.060000 2.200465
+O 15.999000 0.047432 3.004968
+S 32.060000 0.130563 3.255450
+P 30.973800 0.160000 3.212304
+F 18.998400 0.046490 3.128500
+*********************************************************
+MOLECULE:: orientation around the inertia principal axis 
+*********************************************************
+Inertia matrix a.u. Ang^2: 
+{  176.802428  -10.009600  6.677791  }
+{  -10.009600  1634.858147  2.511716  }
+{  6.677791  2.511716  1698.755287  }
+Rotation matrix applied to molecule: 
+{  0.004130  0.038557  0.999248  }
+{  0.999967  0.006872  -0.004399  }
+{  -0.007036  0.999233  -0.038527  }
+Molecule radius: 6.008600 Ang
+orientation time of molecule target: 0.001278 s
+target mass: 180.227000 amu
+gas mass: 28.014000 amu
+reduce mass: 28.014000 amu
+charge state: 1.000002 e
+*********************************************************
+Equipotential Ellipsoid: 
+*********************************************************
+Axis Length: 35.534079 35.741372 36.673270 Ang
+Uncertainy: 0.149268 0.150666 0.156191
+Percent Uncert: 0.420070 0.421545 0.437004
+RMSD: 0.065736
+Covariance matrix: 0.065736
+{  0.022281  -0.005698  -0.005686  }
+{  -0.005698  0.022700  -0.005715  }
+{  -0.005686  -0.005715  0.024396  }
+Average ellipsoid axes: 35.982907 +/- 0.062519 Ang
+Ellipsoid surface area: 16269.934565 +/- 56.526896 Ang^2
+Ellipsoid axes further expanded by: 1.360000 Ang
+ellipsoid axis length: 36.894079 37.101372 38.033270 Ang
+ellipsoid calculation time: 56.153412 s
+maximal impact parameter: 38.033270 Ang
+*********************************************************
+Linked-cell: 
+Numbers of cells: 343
+Nx: 7 Ny: 7 Nz: 7
+Filled cells: 1
+Empty cells: 342
+Average atoms per cell: 27.000000
+Maximum atoms per cell: 27
+Minimum atoms per cell: 27
+Simulation box: 
+lx: 84.070000 Ang
+ly: 84.070000 Ang
+lz: 84.070000 Ang
+linked-cell calculation time: 0.000659 s
+*********************************************************
+Trajectory calculations 
+*********************************************************
+Ntraj: 10000
+Nfree: 367
+Nscatter: 9612
+Nlost: 21
+omega: 147.559709
+Ntraj: 10000
+Nfree: 324
+Nscatter: 9637
+Nlost: 39
+omega: 134.594685
+Ntraj: 10000
+Nfree: 351
+Nscatter: 9611
+Nlost: 38
+omega: 132.447173
+Ntraj: 10000
+Nfree: 350
+Nscatter: 9617
+Nlost: 33
+omega: 139.964181
+Ntraj: 10000
+Nfree: 382
+Nscatter: 9582
+Nlost: 36
+omega: 150.344343
+Ntraj: 10000
+Nfree: 352
+Nscatter: 9608
+Nlost: 40
+omega: 142.529531
+Ntraj: 10000
+Nfree: 357
+Nscatter: 9605
+Nlost: 38
+omega: 127.193881
+Ntraj: 10000
+Nfree: 353
+Nscatter: 9613
+Nlost: 34
+omega: 133.275932
+Ntraj: 10000
+Nfree: 349
+Nscatter: 9623
+Nlost: 28
+omega: 128.715493
+Ntraj: 10000
+Nfree: 339
+Nscatter: 9626
+Nlost: 35
+omega: 148.646802
+CCS time: 16.392054 s
+--------------------------------------------------------
+average value of CCS = 138.527173 Ang^2
+error value of CCS = 2.542522 Ang^2
+Total time: 72.548518 s
