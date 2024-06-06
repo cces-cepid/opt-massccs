@@ -1,75 +1,53 @@
-# MassCSS-OMPC: A high performance Collision Cross-Section software for Cluster execution
-
-MassCCS-OMPC is a extended version of ["MassCCS"](https://github.com/cces-cepid/massccs) to perform culations at the inter-node level using a novel programming model, called ["OpenMP Cluster (OMPC)"](https://ompcluster.gitlab.io/). OMPC is a task-parallel model that extends OpenMP for cluster programming, allowing applications to use the same programming model to exploit intra- and inter-node parallelism. That simplifies the development and software maintenance of HPC applications. 
-
-This extension speedup even more the CCS calculations allowing expensive CCS calculations using nitrogen buffer for large systems such as human adenovirus with ~11 million atoms in just 4 min. 
-
-If you use MassCCS-OMPC in your research please, cite the following papers:
-
-["S. Cajahuaringa, L. N. Zanotto,S. Rigo, H. Yviquel, M. S. Skaf and G. Araujo, Ion-Molecule Collision Cross-Section Calculations Using Trajectory Parallelization in Distributed Systems, J.
-Parallel Distr. Com. 191 (2024) 104902"](https://doi.org/10.1016/j.jpdc.2024.104902)
+# Optimization parameters for Nitrogen buffer gas
 
 ## The repository contents:
-[`src`](src): This directory contains massccs source codes.
+- CCS_exp_N2.dat
+- diff_evol_ompc.py
+- bounds.dat
+- structures in extender xyz format
+- log file for each CCS calculation for each molecue. 
 
-[`paper`](paper): This directory contains inputs, scripts and outputs of published paper.
+### File: CCS_exp_N2.dat
 
-## Installation 
+List of molecules and experimental CCS for nitrogen buffer gas. The molecules are:
+- 05_Phenacetin.xyz          140.5
+- 07_Alprenolol.xyz          157.5
+- 09_Trimethoprim.xyz        171.2
+- 10_Ondansetron.xyz         172.7
+- 11_Cinchonine_01.xyz       166.3
+- 12_Sulpiride_01.xyz        183.3
+- 18_Verapamil.xyz           210.0
+- 20_Reserpine.xyz           254.3
+- acetaminophen.xyz          131.1
+- acetylcholine.xyz          127.8
+- betamethasone.xyz          189.6
+- c60.xyz                    213.1
+- c70.xyz                    231.4
+- choline.xyz                115.4
+- dexamethasone.xyz          190.7
+- N-ethylaniline.xyz         124.5
+- paracetamol.xyz            131.1
+- pyrene.xyz                 135.0
+- TMA.xyz                    107.4
+- tryphenylene.xyz           143.3
+- TtEA.xyz                   122.2
 
-Download the MassCCS-OMPC or clone the repository on your computer:
- 
+### File: bounds.dat
+
+Define the minimal and maximal values of epsilon and sigma parameter for each atom type, for example:
+C 12.011 0.06 0.14 3.2 4.0
+N 14.007 0.07  0.1  3.8 4.8
+H 1.008 0.018 0.05  0.8 2.4
+O 15.999 0.05  0.068 3.0 4.0
+S 32.06 0.11 0.15 3.0 4.6
+P 30.9738 0.14 0.16 3.0 4.6
+F 18.998 0.04 0.065 2.8 3.8
+
+### File: diff_evol_ompc.py
+
+Python script to perform optimization using differential evolution. Use in this directory the massccs exeutavel and OMPC container. 
+
 ```bash
-git clone https://github.com/cces-cepid/massccs-ompc.git
+python diff_evol_ompc.py CCS_exp_N2.dat bounds.dat
 ```
-## Required Software
-
-MassCCS-OMPC depends on the following software:
-
-* Singularity
-* OpenMP Cluster container image 
-* MPI compiler
-
-On Ubuntu/Debian, you can simply run the following commands to dowlonad the last version of OMPC:
-```bash
-sudo apt-get install singularity-container  
-singularity pull docker://ompcluster/runtime
-```
-
-## Installing
-
-On your terminal, run the following commands to compile the source code:
-
-```bash
-$ cd massccs-ompc
-$ singularity shell ./runtime_latest.sif # execute the OMPC container
-Singularity> mkdir build # Create build directory 
-Singularity> cd build
-Singularity> export CC=clang CXX=clang++ # export Clang compiler 
-Singularity> cmake .. # Generate Makefiles
-Singularity> make  # Compile the program to create the massccs-ompc executable
-```
-
-## Run
-
-Finally, after compiled, the program can be launched using MPI's utility mpirun passing the number of processes as argument. Other flags of mpirun can be used normally (e.g. --hostfile).
-
-In this case is used 3 physical nodes but only 2 nodes are used as worker nodes
-```bash
-cd .. # need to execute massccs from root dir
-mpirun -np 3 singularity exec runtime_latest.sif ./build/bin/massccs-ompc input_Hellium.json > He_04_1ubq_charge_4e_min.log
-```
-where the input file input_Hellium.json define only 2 tasks for 2 workes nodes, thats means one task for node.
-
- ```bash
-cd .. # need to execute massccs from root dir
-mpirun -np 3 singularity exec runtime_latest.sif ./build/bin/massccs-ompc input_Nitrogen.json > N2_04_1ubq_charge_4e_min.log
-```
-where the input file input_Nitrogen.json define 4 tasks for 2 workes nodes available, that is a dynamics task schedule.
-
-
-
-
-Author & Contact:
---------------
-Samuel Cajahuaringa - samuelcm@unicamp.br
-
+In this example is used 4 nodes for CCS calculations, see lines 112 and 199, modified this line to perform calculations using different nodes.
