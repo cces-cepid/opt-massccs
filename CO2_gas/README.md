@@ -28,10 +28,13 @@ List of molecules and experimental CCS for carbon dioxide buffer gas. The molecu
 ### File: bounds.dat
 
 Define the minimal and maximal values of epsilon and sigma parameter for each atom type, for example:
+
+```bash
 C 12.011 0.08 0.18 3.0 4.8
 N 14.007 0.05 0.18 3.0 4.2
 H 1.008  0.01 0.045 1.0 3.0
 O 15.999 0.05 0.18 3.0 4.2
+```
 
 ### File: diff_evol_ompc.py
 
